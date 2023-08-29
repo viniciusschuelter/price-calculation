@@ -18,4 +18,13 @@ export class ProductService {
   setProducts(products: ProductInterface[]): void {
     this._productsSubject.next(products);
   }
+
+  changeProduct(product: ProductInterface): void {
+    const products = this.getProducts().filter( _ => _.id !== product.id)
+    this.setProducts([...products, product].sort( (a, b) => a.id - b.id));
+  };
+
+  removeProduct(product: ProductInterface): void {
+    this.setProducts(this.getProducts().filter( _ => _.id !== product.id));
+  }
 }

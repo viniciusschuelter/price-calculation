@@ -1,7 +1,7 @@
 
 
 export interface ProductInterface {
-  id: string;
+  id: number;
   fabricator: string;
   name: string;
   description: string;
