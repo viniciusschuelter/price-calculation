@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -7,8 +7,8 @@ import {Component} from "@angular/core";
   template: `
     <header class="container">
       <hgroup>
-        <h1>Cheers & Beers</h1>
-        <h2>A basic list to choose your beer</h2>
+        <h1>Produtos</h1>
+        <h2>Tela de Cálculo de Preços</h2>
       </hgroup>
     </header>
   `

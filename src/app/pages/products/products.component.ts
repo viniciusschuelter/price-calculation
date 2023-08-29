@@ -1,6 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ProductService } from '../../services/product.service';
+import { Observable } from 'rxjs';
+import { ProductInterface } from '../../interfaces/product.interface';
 
 @Component({
-  template: ` <div>products works</div> `,
+  template: `
+    <div class="container" *ngIf="products$ | async as products">
+
+      <h5>Cadastro</h5>
+      <app-tab-product [products]="products"></app-tab-product>
+
+      <h5>Cálculo de Preço</h5>
+      <app-tab-prices [products]="products"></app-tab-prices>
+
+    </div>
+  `,
 })
-export class ProductsComponent {}
+export class ProductsComponent {
+
+  private _productService = inject(ProductService);
+  products$: Observable<ProductInterface[]> = this._productService.products$;
+}
