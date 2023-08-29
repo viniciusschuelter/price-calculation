@@ -1,3 +1,4 @@
+import { Signal } from '@angular/core';
 
 
 export interface ProductInterface {
@@ -13,5 +14,5 @@ export interface ProductInterface {
 export interface ProductTabInterface {
   header: string;
   prop: keyof ProductInterface;
-  type: 'text' | 'number';
+  type: 'text' | 'number' | 'total';
 }

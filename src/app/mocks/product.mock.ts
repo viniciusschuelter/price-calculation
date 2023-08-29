@@ -11,8 +11,19 @@ export const ProductsMock: ProductInterface[] = [
 export const ProductTabMock: ProductTabInterface[] = [
   { header: 'Fabricante', prop: 'fabricator', type: 'text' },
   { header: 'Cod. Produto', prop: 'name', type: 'text'  },
-  { header: 'Descriçao', prop: 'description', type: 'text'  },
-  { header: 'Preço', prop: 'price', type: 'number'  },
-]
+  { header: 'Descrição', prop: 'description', type: 'text'  },
+  { header: 'Valor', prop: 'price', type: 'number'  },
+];
 
+export const PriceTabMock: ProductTabInterface[] = [
+  { header: 'Fabricante', prop: 'fabricator', type: 'text' },
+  { header: 'Cod. Produto', prop: 'name', type: 'text'  },
+  { header: 'Descrição', prop: 'description', type: 'text'  },
+  { header: 'Valor', prop: 'price', type: 'number'  },
+  { header: 'Desconto', prop: 'discount', type: 'number'  },
+  { header: 'Total', prop: 'id', type: 'total'  },
+];
 
+export const initialProduct: ProductInterface = {
+  id: 0, fabricator: '', name: '', description: '', price: 1, discount: 0
+};

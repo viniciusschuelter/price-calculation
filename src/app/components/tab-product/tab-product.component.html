@@ -1,0 +1,32 @@
+<form [formGroup]="formGroupProduct">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let item of productTabMock">{{ item.header }}</th>
+        <th><a class="c-pointer" (click)="newProduct()">Add+</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td *ngFor="let item of productTabMock">
+          <ng-container *ngIf="product?.editing else readonly">
+            <input
+              [type]="item.type"
+              [id]="item.prop"
+              [placeholder]="item.header"
+              [formControlName]="item.prop"
+            />
+          </ng-container>
+          <ng-template #readonly >{{ product[item.prop] }}</ng-template>
+        </td>
+        <td class="c-pointer">
+          <ng-container *ngIf="!product?.editing">
+            <a class="p-right" (click)="editProduct(product)">✎</a>
+            <a (click)="removeProduct(product)">X</a>
+          </ng-container>
+          <a *ngIf="product?.editing" (click)="saveProduct()">✓</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

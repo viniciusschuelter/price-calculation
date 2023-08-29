@@ -7,14 +7,16 @@ import { ProductInterface } from '../../interfaces/product.interface';
   template: `
     <div class="container" *ngIf="products$ | async as products">
 
-      <h5>Cadastro</h5>
+      <button role="button" class="secondary" (click)="resetProducts()">Limpar Dados</button>
+
+      <h5 class="m-bottom">Cadastro</h5>
       <app-tab-product
         [products]="products"
         (productChanged)="productChanged($event)"
         (productRemoved)="productRemoved($event)"
       ></app-tab-product>
 
-      <h5>Cálculo de Preço</h5>
+      <h5 class="m-bottom">Cálculo de Preço</h5>
       <app-tab-prices [products]="products"></app-tab-prices>
 
     </div>
@@ -31,5 +33,9 @@ export class ProductsComponent {
 
   productRemoved(product: ProductInterface): void {
     this._productService.removeProduct(product);
+  }
+
+  resetProducts(): void {
+    this._productService.setProducts([]);
   }
 }

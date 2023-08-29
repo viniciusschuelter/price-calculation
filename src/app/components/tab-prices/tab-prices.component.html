@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let item of priceTabMock">{{ item.header }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td *ngFor="let item of priceTabMock">
+        <ng-container *ngIf="!(productSelected?.id === product.id && columnSelected === item.prop) else editing">
+          {{ item.type === 'total' ? ([product] | totalSum) : product[item.prop] }}
+          <ng-container *ngIf="item.prop === 'discount' || (item.prop === 'price' && product[item.prop] === 1)">
+            <a (click)="editColumn(product, item.prop)">✎</a>
+          </ng-container>
+        </ng-container>
+        <ng-template #editing>
+          <input type="number" [ngModel]="productSelected[columnSelected]" (ngModelChange)="changeColumn($event)" />
+          <a (click)="saveColumn()">✓</a>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td><td></td><td></td>
+      <td> {{ products | totalSum: false }} </td><td></td>
+      <td> {{ products | totalSum }} </td>
+    </tr>
+  </tfoot>
+</table>

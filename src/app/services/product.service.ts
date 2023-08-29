@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   changeProduct(product: ProductInterface): void {
-    const products = this.getProducts().filter( _ => _.id !== product.id)
+    const products = this.getProducts().filter( _ => _.id !== product.id).map( _ => ({..._, editing: false}));
     this.setProducts([...products, product].sort( (a, b) => a.id - b.id));
   };
 
