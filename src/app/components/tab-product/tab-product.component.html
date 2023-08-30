@@ -17,7 +17,7 @@
               [formControlName]="item.prop"
             />
           </ng-container>
-          <ng-template #readonly >{{ product[item.prop] }}</ng-template>
+          <ng-template #readonly>{{ product[item.prop] }}</ng-template>
         </td>
         <td class="c-pointer">
           <ng-container *ngIf="!product?.editing">

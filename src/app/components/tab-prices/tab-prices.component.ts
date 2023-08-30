@@ -20,7 +20,7 @@ export class TabPricesComponent {
   priceTabMock: ProductTabInterface[] = PriceTabMock;
 
   editColumn(product: ProductInterface, column: keyof ProductInterface): void {
-    this.productSelected = product;
+    this.productSelected = { ...product };
     this.columnSelected = column;
   }
 

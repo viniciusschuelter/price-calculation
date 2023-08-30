@@ -4,6 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 import { TabProductComponent } from '../../components/tab-product/tab-product.component';
 import { TabPricesComponent } from '../../components/tab-prices/tab-prices.component';
 import { AsyncPipe, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 const routes: Route[] = [
   {
@@ -19,7 +20,8 @@ const routes: Route[] = [
     TabProductComponent,
     TabPricesComponent,
     AsyncPipe,
-    NgIf
+    NgIf,
+    FormsModule
   ],
   exports: [ProductsComponent],
 })
